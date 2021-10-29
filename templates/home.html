@@ -1,0 +1,43 @@
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Spam Detector</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Email Spam Detector</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#welcome-message">Home</a></li>
+        
+      </div>
+    </nav>
+    <div class="container">
+        <div class="jumbotron" style="padding: 2%;">
+          <h3>Email Spam Detector</h3>
+        </div>
+        <div class="jumbotron" style="padding: 2%;">
+            <form action="/result" method="POST">
+                <p></p>
+                <textarea rows="6" cols="100"  name="mail" placeholder="Enter the text" style="font-size: 20px;">{{ stat }}</textarea>
+                <br/>
+                <button type="submit" id="subs"class="btn btn-primary btn-lg">Submit</button>
+                {%if msg=="Ham"%}
+                <p style="margin-left: 40%; margin-top: -3%; color: rgb(13, 153, 13);">Not Spam</p>
+                {%elif msg=="Spam"%}
+                <p style="margin-left: 40%; margin-top: -3%; color: rgb(182, 37, 1);">Spam</p>
+                {%endif%}
+            </form>
+        </div>
+        
+    </div>
+  </body>
+</html>
